@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Dati da "config/data.php": {{ $home }}</h1>
-    <p>This is my paragraph content.</p>
+    <h1>Applicazione Laravel Comics</h1>
+    <p>Models , Controllers , Seeder e CRUD .....SPACCANO!!!!</p>
 @endsection
