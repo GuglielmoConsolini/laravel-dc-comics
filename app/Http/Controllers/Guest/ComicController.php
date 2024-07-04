@@ -14,6 +14,12 @@ class ComicController extends Controller
     public function index()
     {
         $listaFumetti = Comic::all();
+
+        $data = [
+            "fumetti" => $listaFumetti
+        ];
+
+        return view("comics.index",$data);
     }
 
     /**
@@ -37,7 +43,13 @@ class ComicController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $fumetto = Comic::find($id);
+
+        $data = [
+            "comic" => $fumetto
+        ];
+
+        return view("comics.show", $data);
     }
 
     /**
