@@ -36,18 +36,28 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newComic = new Comic();
+        $newComic->title = $data["title"];
+        $newComic->author = $data["author"];
+        $newComic->description = $data["description"];
+        $newComic->publication_date = $data["publication_date"];
+        $newComic->price = $data["price"];
+        $newComic->publisher = $data["publisher"];
+
+        $newComic->save();
+
+        return redirect()->route('comics.show' , $newComic->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        $fumetto = Comic::find($id);
+    public function show(Comic $comic) {
 
         $data = [
-            "comic" => $fumetto
+            "comic" => $comic
         ];
 
         return view("comics.show", $data);
